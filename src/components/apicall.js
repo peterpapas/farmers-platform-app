@@ -42,11 +42,10 @@ function ApiCall(props) {
   );
 
   useEffect(() => {
-    // My personal API Key is: 0cc0d8a57951e6604c481c7a11931b89
     // Testing Lat and Long values
     console.log("LAT:", props.LAT);
     console.log("LON:", props.LON);
-    const API_KEY = "0cc0d8a57951e6604c481c7a11931b89";
+    const API_KEY = process.env.OPEN_WEATHER_API_KEY;
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${props.LAT}&lon=${props.LON}&appid=${API_KEY}&units=metric`
@@ -77,8 +76,7 @@ function ApiCall(props) {
   ]);
 
   useEffect(() => {
-    // My personal API Key is: 0cc0d8a57951e6604c481c7a11931b89
-    const API_KEY = "0cc0d8a57951e6604c481c7a11931b89";
+    const API_KEY = process.env.OPEN_WEATHER_API_KEY;
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${props.LAT}&lon=${props.LON}&appid=${API_KEY}&units=metric`
