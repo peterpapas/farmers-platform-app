@@ -1,23 +1,31 @@
-# FOLLOW THE GUIDE TO RUN THE PROJECT ON LOCAL
+# Farmer's Platform App
 
-I will create a build version with a hook later on
+Farmer's Platform App is an agriculture-focused application designed to provide farmers with crop-specific weather information, downloadable manuals, and access to a blog section. The app leverages React, Axios, and the OpenWeather API to deliver a powerful and useful tool for farmers.
 
-# Getting Started with Create React App
+## Technologies Used
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- React
+- yarn
+- Axios
+- OpenWeather API
+- Netlify
 
-In the project directory run:
+## Features
 
-### `yarn`
+Fetch accurate, real-time weather data using OpenWeather API and Axios
+Provide crop-specific weather insights and comparisons
+Downloadable manuals and access to a blog section for additional resources
+Responsive and user-friendly interface
 
-After the packages get installed run:
+## Installation
 
-### `yarn start`
+To run the Farmer's Platform App locally, follow these steps:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository to your local machine.
+2. Install dependencies by running yarn.
+3. Start the development server with yarn start.
+4. Open http://localhost:3000 in your web browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-new upstream
+To use the Farmer's Platform App, input your location or allwo the application the grab your locations latitude and longitude to fetch the relevant weather data. The app provides current temperature, humidity, wind speed, and a 7-day forecast. It also compares the weather conditions against ideal conditions for specific crops and offers visual alerts based on the comparison results. Access downloadable manuals and a blog section for additional resources.
