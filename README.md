@@ -12,10 +12,10 @@ Farmer's Platform App is an agriculture-focused application designed to provide 
 
 ## Features
 
-Fetch accurate, real-time weather data using OpenWeather API and Axios
-Provide crop-specific weather insights and comparisons
-Downloadable manuals and access to a blog section for additional resources
-Responsive and user-friendly interface
+- Fetch accurate, real-time weather data using OpenWeather API and Axios
+- Provide crop-specific weather insights and comparisons
+- Downloadable manuals and access to a blog section for additional resources- 
+- Responsive and user-friendly interface
 
 ## Installation
 
