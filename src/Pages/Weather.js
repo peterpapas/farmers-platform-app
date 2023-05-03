@@ -58,8 +58,13 @@ function Weather() {
     setCity(e.target.value);
   };
 
-  useEffect(() => {
-    const API_KEY = "0cc0d8a57951e6604c481c7a11931b89";
+  const handleSearch = (e) => {
+    e.preventDefault();
+    fetchWeather(city);
+  };
+
+  const fetchWeather = () => {
+    const API_KEY = process.env.OPEN_WEATHER_API_KEY;
 
     if (city) {
       axios
@@ -76,7 +81,7 @@ function Weather() {
           console.log(error);
         });
     }
-  }, [city]);
+  };
 
   return (
     <div className="bg-gradient-to-r from-cyan-500 to-blue-500 min-h-screen flex items-center justify-center">
@@ -93,25 +98,36 @@ function Weather() {
         <div className="mb-4">
           <LocationButton onLocationChange={handleLocationChange} />
         </div>
-        <label
-          htmlFor="cityname"
-          className="block font-medium text-gray-700 mb-2"
-        >
-          City Name:
-        </label>
-        <input
-          id="cityname"
-          className={`block w-full px-4 py-2 border rounded-md bg-white text-gray-900 ${
-            city.length === 0
-              ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-              : "border-gray-300 focus:border-purple-500 focus:ring-purple-500"
-          } focus:outline-none focus:ring-2 transition duration-300 ease-in-out mb-4`}
-          placeholder="Name of the city"
-          type="text"
-          value={city}
-          onChange={handleCityChange}
-          required
-        />
+        <form onSubmit={handleSearch}>
+          <label
+            htmlFor="cityname"
+            className="block font-medium text-gray-700 mb-2"
+          >
+            City Name:
+          </label>
+          <div className="flex">
+            <input
+              id="cityname"
+              className={`flex-1 w-full px-4 py-2 border rounded-md bg-white text-gray-900 ${
+                city.length === 0
+                  ? "border-red-500 focus:border-red-500 focus:ring-red-500"
+                  : "border-gray-300 focus:border-purple-500 focus:ring-purple-500"
+              } focus:outline-none focus:ring-2 transition duration-300 ease-in-out`}
+              placeholder="Name of the city"
+              type="text"
+              value={city}
+              onChange={handleCityChange}
+              required
+            />
+            <button
+              type="submit"
+              className="px-4 py-2 ml-4 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600 transition duration-300 ease-in-out"
+            >
+              Search
+            </button>
+          </div>
+        </form>
+
         <hr className="my-4" />
         <p className="text-sm mb-4">
           Provide custom absolute 'maximum' and 'minimum' temperatures that you

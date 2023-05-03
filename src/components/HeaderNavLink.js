@@ -6,7 +6,7 @@ function HeaderNavLink({ to, children }) {
     <NavLink
       to={to}
       className="text-gray-300 hover:text-gray-800 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-      activeClassName="text-gray-800"
+      activeclassname="text-gray-800"
     >
       {children}
     </NavLink>

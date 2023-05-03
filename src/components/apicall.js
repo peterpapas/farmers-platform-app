@@ -282,7 +282,10 @@ function ApiCall(props) {
           "Saturday",
         ][date.getDay()];
         return (
-          <div className="w-auto p-4 m-auto bg-white shadow-lg rounded-2xl dark:bg-gray-800">
+          <div
+            key={index}
+            className="w-auto p-4 m-auto bg-white shadow-lg rounded-2xl dark:bg-gray-800"
+          >
             <div className="flex flex-col items-center justify-center">
               <p className="dark:text-white">Date: {day.dt_txt}</p>
               <p className="text-xl font-semibold mb-2 dark:text-white">
@@ -347,7 +350,7 @@ function ApiCall(props) {
                 className="bg-yellow-200 border-yellow-600 text-yellow-600 border-l-4 p-4"
                 role="alert"
               >
-                <p class="font-bold">Warning Weekly</p>
+                <p className="font-bold">Warning Weekly</p>
                 <p>Humidity is not Ideal for Wheat growth.</p>
                 <p>Current humidity is: {day.main.humidity}%</p>
                 <p>
