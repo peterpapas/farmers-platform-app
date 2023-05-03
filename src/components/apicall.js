@@ -42,13 +42,6 @@ function ApiCall(props) {
   );
 
   useEffect(() => {
-    // Testing Lat and Long values
-    console.log("LAT:", props.LAT);
-    console.log("LON:", props.LON);
-    console.log(
-      process.env.REACT_APP_OPEN_WEATHER_API_KEY,
-      "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
-    );
     const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
     axios
       .get(
