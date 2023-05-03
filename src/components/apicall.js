@@ -45,7 +45,7 @@ function ApiCall(props) {
     const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${props.LAT}&lon=${props.LON}&appid=${API_KEY}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${props.LAT}&lon=${props.LON}&appid=${API_KEY}&units=metric&max_temp=${wheat.minMaxTemperature[1]}&min_temp=${wheat.minMaxTemperature[0]}`
       )
       .then((response) => {
         setWeatherData(response.data);
@@ -53,24 +53,14 @@ function ApiCall(props) {
         setHumidity(response.data.main.humidity);
         setWindSpeed(response.data.wind.speed);
         setCityName(response.data.name);
-        setMaxTemp(props.SliderMaxTempValue);
-        setMinTemp(props.SliderMinTempValue);
+        const { min, max } = wheat.minMaxTemperature;
         // Weekly forecast
         setWeeklyForecast(response.data.list.slice(0, 7));
       })
       .catch((error) => {
         console.log(error);
       });
-  }, [
-    props.LAT,
-    props.LON,
-    props.SliderMaxTempValue,
-    props.SliderMinTempValue,
-    props.SliderMinHumidityValue,
-    props.SliderMaxHumidityValue,
-    props.SliderIdealMinTempValue,
-    props.SliderIdealMaxTempValue,
-  ]);
+  }, [props.LAT, props.LON, wheat.minMaxTemperature]);
 
   useEffect(() => {
     const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
@@ -98,7 +88,7 @@ function ApiCall(props) {
     } else {
       setWheatMinMaxTemperature(false);
     }
-  }, [temperature]);
+  }, [temperature, wheat.minMaxTemperature]);
 
   // compare current tempreture to ideal tempreture
 
@@ -111,7 +101,7 @@ function ApiCall(props) {
     } else {
       setWheatIdealTemperature(false);
     }
-  }, [temperature]);
+  }, [temperature, wheat.idealTemperature]);
 
   // Compare current humidity to ideal
 
@@ -124,7 +114,7 @@ function ApiCall(props) {
     } else {
       setWheatIdealHumidity(false);
     }
-  }, [humidity]);
+  }, [humidity, wheat.idealHumidity]);
 
   // Compare Weekly to ideal wheat temperature
   useEffect(() => {

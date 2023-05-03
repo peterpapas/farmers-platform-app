@@ -162,25 +162,7 @@ function Weather() {
           />
         </div>
         <hr className="my-4" />
-        <p className="text-sm mb-4">
-          Provide custom ideal 'maximum' and 'minimum' temperatures that you
-          would like to get results for.
-        </p>
-        <div className="mb-4">
-          <p className="mb-2">
-            Ideal Maximum Temperature: {SliderIdealMaxTempValue}°C
-          </p>
-          <Slider
-            getAriaLabel={() => "Temperature range"}
-            onChange={handleSliderIdealMaxTempValueChange}
-            valueLabelDisplay="auto"
-            defaultValue={24}
-            // getAriaValueText={SliderValue}
-            min={-100}
-            max={100}
-          />
-        </div>
-        <hr />
+
         {/* Custom Ideal Temps*/}
         <p>
           Provide custom Ideal 'maximum' and 'minimum' tempretures that would
