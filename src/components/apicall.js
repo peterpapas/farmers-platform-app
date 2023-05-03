@@ -46,10 +46,10 @@ function ApiCall(props) {
     console.log("LAT:", props.LAT);
     console.log("LON:", props.LON);
     console.log(
-      process.env.OPEN_WEATHER_API_KEY,
+      process.env.REACT_APP_OPEN_WEATHER_API_KEY,
       "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
     );
-    const API_KEY = process.env.OPEN_WEATHER_API_KEY;
+    const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/weather?lat=${props.LAT}&lon=${props.LON}&appid=${API_KEY}&units=metric`
@@ -80,7 +80,7 @@ function ApiCall(props) {
   ]);
 
   useEffect(() => {
-    const API_KEY = process.env.OPEN_WEATHER_API_KEY;
+    const API_KEY = process.env.REACT_APP_OPEN_WEATHER_API_KEY;
     axios
       .get(
         `https://api.openweathermap.org/data/2.5/forecast?lat=${props.LAT}&lon=${props.LON}&appid=${API_KEY}&units=metric`
